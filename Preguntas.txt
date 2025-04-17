@@ -1,0 +1,11 @@
+¿Cómo el patrón Builder ayuda a manejar pizzas predefinidas y personalizadas?
+El patrón Builder permite construir objetos complejos paso a paso, en el caso de las pizzas, nos permite crear recetas predefinidas como Margarita o Pepperoni con métodos estáticos, y también construir 
+pizzas totalmente personalizadas agregando o modificando ingredientes fácilmente, haciendo que el código sea más legible, reutilizable y flexible.
+
+¿Qué ventajas tiene este enfoque si mañana añaden una pizza "Hawaiana"?
+Con este enfoque, agregar una nueva pizza como la "Hawaiana" es tan simple como crear un nuevo método estático en el builder (hawaiianaBuilder()), definiendo sus ingredientes base, no hace falta modificar 
+el constructor ni romper el diseño existente, lo que facilita la escalabilidad y el mantenimiento del código.
+
+¿Cómo garantizamos que las pizzas obligatorias siempre tengan sus ingredientes base?
+Los métodos estáticos del builder como margaritaBuilder() ya establecen los ingredientes mínimos requeridos, esto garantiza que cada tipo de pizza predefinida tenga sus elementos esenciales, si se quiere
+reforzar aún más, se podría validar en el método build() que ciertos campos no estén vacíos o nulos antes de crear la pizza.
