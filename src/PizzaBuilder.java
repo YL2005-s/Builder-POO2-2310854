@@ -14,59 +14,59 @@ public class PizzaBuilder {
     private boolean aceitunas;
     private boolean pimientos;
     private boolean glutenFree;
-    private int tamaño = 30;
+    private int tamaño;
 
-    public PizzaBuilder masa(String masa) {
+    public PizzaBuilder setMasa(String masa) {
         this.masa = masa;
         return this;
     }
 
-    public PizzaBuilder salsa(String salsa) {
+    public PizzaBuilder setSalsa(String salsa) {
         this.salsa = salsa;
         return this;
     }
 
-    public PizzaBuilder queso(String queso) {
+    public PizzaBuilder setQueso(String queso) {
         this.queso = queso;
         return this;
     }
 
-    public PizzaBuilder agregarIngrediente(String ingrediente) {
+    public PizzaBuilder addIngredient(String ingrediente) {
         this.ingredientes.add(ingrediente);
         return this;
     }
 
-    public PizzaBuilder extraQueso() {
+    public PizzaBuilder addExtraQueso() {
         this.extraQueso = true;
         return this;
     }
 
-    public PizzaBuilder pepperoni() {
+    public PizzaBuilder addPepperoni() {
         this.pepperoni = true;
         return this;
     }
 
-    public PizzaBuilder champiñones() {
+    public PizzaBuilder addChampiñones() {
         this.champiñones = true;
         return this;
     }
 
-    public PizzaBuilder cebolla() {
+    public PizzaBuilder addCebolla() {
         this.cebolla = true;
         return this;
     }
 
-    public PizzaBuilder jamon() {
+    public PizzaBuilder addJamon() {
         this.jamon = true;
         return this;
     }
 
-    public PizzaBuilder aceitunas() {
+    public PizzaBuilder addAceitunas() {
         this.aceitunas = true;
         return this;
     }
 
-    public PizzaBuilder pimientos() {
+    public PizzaBuilder addPimientos() {
         this.pimientos = true;
         return this;
     }
@@ -76,38 +76,36 @@ public class PizzaBuilder {
         return this;
     }
 
-    public PizzaBuilder tamaño(int tamaño) {
+    public PizzaBuilder setTamaño(int tamaño) {
         this.tamaño = tamaño;
         return this;
     }
 
     public static PizzaBuilder margaritaBuilder() {
         return new PizzaBuilder()
-                .masa("fina")
-                .salsa("tomate")
-                .queso("mozzarella");
+                .setMasa("fina")
+                .setSalsa("tomate")
+                .setQueso("mozzarella");
     }
 
     public static PizzaBuilder pepperoniBuilder() {
         return new PizzaBuilder()
-                .masa("tradicional")
-                .salsa("picante")
-                .queso("mozzarella")
-                .pepperoni();
+                .setMasa("tradicional")
+                .setSalsa("picante")
+                .setQueso("mozzarella")
+                .addPepperoni();
     }
 
     public static PizzaBuilder vegetarianaBuilder() {
         return new PizzaBuilder()
-                .masa("integral")
-                .salsa("pesto")
-                .queso("mozzarella")
-                .agregarIngrediente("verduras frescas");
+                .setMasa("integral")
+                .setSalsa("pesto")
+                .setQueso("mozzarella")
+                .addIngredient("verduras frescas");
     }
 
     public Pizza build() {
-        return new Pizza(masa, salsa, queso, ingredientes,
-                extraQueso, pepperoni, champiñones,
-                cebolla, jamon, aceitunas,
-                pimientos, glutenFree, tamaño);
+        return new Pizza(masa, salsa, queso, ingredientes, extraQueso, pepperoni, champiñones,
+                cebolla, jamon, aceitunas, pimientos, glutenFree, tamaño);
     }
 }

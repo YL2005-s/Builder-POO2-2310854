@@ -1,32 +1,30 @@
 public class Main {
     public static void main(String[] args) {
-        Pizza margaritaExtraQueso = PizzaBuilder
+        Pizza margarita = PizzaBuilder
                 .margaritaBuilder()
-                .extraQueso()
+                .addExtraQueso()
                 .build();
 
         Pizza pepperoniSinPicante = PizzaBuilder
                 .pepperoniBuilder()
-                .salsa("tomate")
+                .setSalsa("suave")
                 .build();
 
         Pizza vegetarianaConJamon = PizzaBuilder
                 .vegetarianaBuilder()
-                .jamon()
+                .addJamon()
                 .build();
-
 
         Pizza personalizada = new PizzaBuilder()
-                .masa("pan")
-                .salsa("barbacoa")
-                .queso("cheddar")
-                .agregarIngrediente("pollo")
-                .tamaño(35)
+                .setMasa("pan")
+                .setSalsa("barbacoa")
+                .setQueso("cheddar")
+                .addIngredient("pollo")
                 .build();
 
-        System.out.println(margaritaExtraQueso);
-        System.out.println(pepperoniSinPicante);
-        System.out.println(vegetarianaConJamon);
-        System.out.println(personalizada);
+        System.out.println("Margarita con extra queso: " + margarita);
+        System.out.println("Pepperoni sin salsa picante: " + pepperoniSinPicante);
+        System.out.println("Vegetariana con jamón: " + vegetarianaConJamon);
+        System.out.println("Personalizada (pan, barbacoa, cheddar, pollo): " + personalizada);
     }
 }
